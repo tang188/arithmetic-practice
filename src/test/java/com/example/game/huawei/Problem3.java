@@ -1,5 +1,12 @@
 package com.example.game.huawei;
 
+import com.sun.javafx.css.CalculatedValue;
+import org.junit.Test;
+
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.Date;
+
 /**
  * @ClassName Problem3
  * @Description
@@ -21,4 +28,44 @@ public class Problem3 {
         到站时刻  8:18  8:20  8:22  8:24
         概率  0.4  0.3  0.1  0.2
      */
+    @Test
+    public void test(){
+        LocalTime[] beginTime = new LocalTime[10];
+        beginTime[0] = LocalTime.of(8, 0,0);
+        beginTime[1] = LocalTime.of(8, 3,0);
+        beginTime[2] = LocalTime.of(8, 5,0);
+        float[] beginRate = new float[10];
+        beginRate[0] = 0.5f;
+        beginRate[1] = 0.3f;
+        beginRate[2] = 0.2f;
+        LocalTime[] endTime = new LocalTime[10];
+        endTime[0] = LocalTime.of(8,18,0);
+        endTime[1] = LocalTime.of(8,20,0);
+        endTime[2] = LocalTime.of(8,22,0);
+        endTime[3] = LocalTime.of(8,24,0);
+        float[] endRate = new float[10];
+        endRate[0] = 0.4f;
+        endRate[1] = 0.3f;
+        endRate[2] = 0.1f;
+        endRate[3] = 0.2f;
+        float rate = calculateOnTimeRate(beginTime, beginRate, endTime, endRate);
+        System.out.println(rate);
+    }
+
+    private float calculateOnTimeRate(LocalTime[] beginTime, float[] beginRate, LocalTime[] endTime, float[] endRate) {
+        float result = 0;
+        for (int i = 0; i < beginTime.length; i++) {
+            LocalTime beginT = beginTime[i];
+            if (beginT == null) break;
+            beginT = beginT.plusMinutes(20);
+            for (int j = 0; j < endTime.length; j++) {
+                if (endTime[j] == null) break;
+                if (beginT.compareTo(endTime[j]) < 0){
+                    break;
+                }
+                result += beginRate[i] * endRate[j];
+            }
+        }
+        return result;
+    }
 }

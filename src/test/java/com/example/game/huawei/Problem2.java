@@ -1,5 +1,8 @@
 package com.example.game.huawei;
 
+import org.junit.Assert;
+import org.junit.Test;
+
 /**
  * @ClassName Problem2
  * @Description
@@ -16,4 +19,21 @@ public class Problem2 {
         输入：153
         输出：True
      */
+    @Test
+    public void test(){
+        int index = 153;
+        boolean res = calcFlower(index);
+        Assert.assertTrue(res);
+    }
+
+    private boolean calcFlower(int index) {
+        int process = 0;
+        int input = index;
+        while (input > 0){
+            int a = input % 10;
+            input /= 10;
+            process += a * a * a;
+        }
+        return process == index ? true:false;
+    }
 }
