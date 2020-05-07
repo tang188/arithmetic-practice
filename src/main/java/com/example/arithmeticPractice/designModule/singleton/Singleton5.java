@@ -33,8 +33,19 @@ public enum Singleton5 {
            System.out.println("hello2");
        }
     };
+
+    Singleton5() {
+
+    }
+
     public void whatEver(){
         System.out.println("hello1");
+    }
+
+    StaticObject value;
+
+    Singleton5(StaticObject value) {
+        this.value = value;
     }
 
     public abstract void hi();
