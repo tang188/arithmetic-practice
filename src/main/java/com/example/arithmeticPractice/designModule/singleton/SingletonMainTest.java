@@ -12,6 +12,6 @@ public class SingletonMainTest {
     public static void main(String[] args) {
 //        Singleton5.INSTANCE.whatEver();
         Singleton5.IN1.whatEver();
-
+        Singleton5.INSTANCE.hi();
     }
 }
