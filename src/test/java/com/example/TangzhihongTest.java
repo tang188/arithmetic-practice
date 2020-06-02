@@ -1,8 +1,12 @@
 package com.example;
 
+import com.example.Others.A;
 import org.junit.Test;
+import org.springframework.util.CollectionUtils;
 
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -68,5 +72,15 @@ public class TangzhihongTest {
         promotionList.retainAll(enrollPromotionIdSet);
         System.out.println(promotionList);
     }
+
+
+    public static void main(String[] args) {
+        A a = new A();
+        a.setA(1);
+        a.setB(null);
+        CollectionUtils.isEmpty(a.getB());
+        System.out.println(a);
+    }
+
 
 }

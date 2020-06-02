@@ -1,5 +1,7 @@
 package com.example.Others;
 
+import java.util.List;
+
 /**
  * @ClassName A
  * @Description
@@ -10,6 +12,23 @@ package com.example.Others;
 public class A implements  Comparable<A>{
 
     Integer a;
+    List<String> b;
+
+    public A(Integer a, List<String> b) {
+        this.a = a;
+        this.b = b;
+    }
+
+    public List<String> getB() {
+        return b;
+    }
+
+    public void setB(List<String> b) {
+        this.b = b;
+    }
+
+    public A() {
+    }
 
     public A(Integer a) {
         this.a = a;
