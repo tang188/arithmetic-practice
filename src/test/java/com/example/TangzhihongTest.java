@@ -4,10 +4,7 @@ import com.example.Others.A;
 import org.junit.Test;
 import org.springframework.util.CollectionUtils;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @ClassName TangzhihongTest
@@ -83,4 +80,16 @@ public class TangzhihongTest {
     }
 
 
+    @Test
+    public void test11(){
+        List<String> stringList = new ArrayList<>();
+        Map<String,List<String>> map = new HashMap<>();
+        map.put("a", Arrays.asList("a"));
+        stringList.add("String");
+        stringList.addAll(new ArrayList<>(0));
+        stringList.addAll(Optional.ofNullable(map.get("b")).orElse(new ArrayList<>(0)));
+
+        System.out.println(stringList.size());
+        stringList.forEach(s -> System.out.println(s));
+    }
 }

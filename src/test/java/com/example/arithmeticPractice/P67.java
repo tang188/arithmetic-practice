@@ -26,10 +26,11 @@ public class P67 {
      */
     @Test
     public void test(){
-
+        addBinary("11", "1");
     }
 
     public String addBinary(String a, String b) {
 
+        return null;
     }
 }
