@@ -26,11 +26,46 @@ public class P67 {
      */
     @Test
     public void test(){
-        addBinary("11", "1");
+        System.out.println(addBinary("11", "1"));
+        System.out.println(addBinary("1010", "1011"));
+        System.out.println(
+        addBinary("10100000100100110110010000010101111011011001101110111111111101000000101111001110001111100001101",
+                "110101001011101110001111100110001010100001101011101010000011011011001011101111001100000011011110011")
+        );
     }
 
     public String addBinary(String a, String b) {
+        char[] ac = a.toCharArray();
+        char[] bc = b.toCharArray();
+        int max = a.length() > b.length()? a.length() : b.length();
+        boolean f = false;
+        char[] newS = new char[max];
+        for (int i = 0; i < ac.length || i < bc.length; i++) {
+            char c1 = '0';
+            char c2 = '0';
+            if (i < ac.length){
+                c1 = ac[ac.length - i - 1];
+            }
+            if (i < bc.length){
+                c2 = bc[bc.length - i - 1];
+            }
 
-        return null;
+            char newC;
+            if(f){
+                f = c1 - '0' + c2 - '0' + 1 >= 2;
+                newC = (char) (f ? c1 - '0' + c2 - '0' + 1 - 2 + '0' : c1 - '0' + c2 - '0' + 1 + '0');
+            }else {
+                f = c1 - '0' + c2 - '0' >= 2;
+                newC = (char) (f ? c1 - '0' + c2 - '0' - 2 + '0' : c1 - '0' + c2 - '0' + '0');
+            }
+            newS[max - i - 1] = newC;
+        }
+        if (f){
+            char[] res = new char[max + 1];
+            res[0] = '1';
+            System.arraycopy(newS, 0, res, 1, max);
+            return new String(res);
+        }
+        return new String(newS);
     }
 }
