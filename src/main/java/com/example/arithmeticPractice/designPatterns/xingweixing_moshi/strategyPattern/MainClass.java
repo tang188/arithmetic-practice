@@ -14,8 +14,12 @@ public class MainClass {
         Role role = new RoleA("李逍遥");
         role.setiAttack(new AttackXL());
         role.setiDefend(new DefendJZZ());
+        role.setiRun(new Run1());
+        role.setiDisplay(new DisplayNo());
 
+        role.display();
         role.attack();
         role.defend();
+        role.run();
     }
 }
