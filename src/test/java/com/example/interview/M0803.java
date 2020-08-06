@@ -1,4 +1,4 @@
-package com.example.arithmeticPractice;
+package com.example.interview;
 
 import org.junit.Test;
 
