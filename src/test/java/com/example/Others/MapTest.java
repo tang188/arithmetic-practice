@@ -21,4 +21,15 @@ public class MapTest {
         map.put("a", null);
         map.put(null, null);
     }
+
+    @Test
+    public void testMap(){
+        StringBuilder stringBuilder = new StringBuilder("tangzhihong");
+        String a = "tangzhihong";
+        int sum = 10000;
+        HashMap map = new HashMap<String, String>();
+        for (int i = 0; i < sum; i++) {
+            map.put(a + i, a + i);
+        }
+    }
 }
